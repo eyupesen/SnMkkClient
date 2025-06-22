@@ -1,6 +1,6 @@
 ﻿namespace SnMkkClient
 {
-    partial class MainWindow
+    partial class KAPClient
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
-            fileToolStripMenuItem = new ToolStripMenuItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KAPClient));
             listView_members = new ListView();
             columnHeader_id = new ColumnHeader();
             columnHeader_title = new ColumnHeader();
@@ -40,26 +39,9 @@
             textBox_membersSearch = new TextBox();
             button_memberSearch = new Button();
             panel1 = new Panel();
-            menuStrip1.SuspendLayout();
+            button_settings = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.BackColor = Color.FromArgb(51, 61, 81);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(988, 24);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            fileToolStripMenuItem.ForeColor = Color.White;
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(56, 20);
-            fileToolStripMenuItem.Text = "Ayarlar";
             // 
             // listView_members
             // 
@@ -67,14 +49,13 @@
             listView_members.BorderStyle = BorderStyle.None;
             listView_members.Columns.AddRange(new ColumnHeader[] { columnHeader_id, columnHeader_title, columnHeader_stockCode, columnHeader_memberType, columnHeader_url });
             listView_members.FullRowSelect = true;
-            listView_members.Location = new Point(12, 84);
+            listView_members.Location = new Point(12, 63);
             listView_members.Name = "listView_members";
-            listView_members.Size = new Size(964, 494);
+            listView_members.Size = new Size(1240, 606);
             listView_members.TabIndex = 1;
             listView_members.UseCompatibleStateImageBehavior = false;
             listView_members.View = View.Details;
             listView_members.ItemActivate += listView_members_ItemActivate;
-            listView_members.DoubleClick += listView_members_DoubleClick;
             // 
             // columnHeader_id
             // 
@@ -83,7 +64,7 @@
             // columnHeader_title
             // 
             columnHeader_title.Text = "Şirket";
-            columnHeader_title.Width = 300;
+            columnHeader_title.Width = 480;
             // 
             // columnHeader_stockCode
             // 
@@ -98,25 +79,27 @@
             // columnHeader_url
             // 
             columnHeader_url.Text = "URL";
-            columnHeader_url.Width = 300;
+            columnHeader_url.Width = 360;
             // 
             // label_member
             // 
-            label_member.AutoSize = true;
             label_member.Font = new Font("Segoe UI Semilight", 14F);
             label_member.ForeColor = Color.White;
+            label_member.Image = Properties.Resources.office_building;
+            label_member.ImageAlign = ContentAlignment.MiddleLeft;
             label_member.Location = new Point(12, 16);
             label_member.Name = "label_member";
-            label_member.Size = new Size(89, 25);
+            label_member.Size = new Size(155, 30);
             label_member.TabIndex = 2;
-            label_member.Text = "Şirket Adı";
+            label_member.Text = "Firma Arama";
+            label_member.TextAlign = ContentAlignment.MiddleRight;
             // 
             // textBox_membersSearch
             // 
             textBox_membersSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             textBox_membersSearch.BorderStyle = BorderStyle.FixedSingle;
             textBox_membersSearch.Font = new Font("Segoe UI", 14F);
-            textBox_membersSearch.Location = new Point(107, 13);
+            textBox_membersSearch.Location = new Point(173, 16);
             textBox_membersSearch.Name = "textBox_membersSearch";
             textBox_membersSearch.Size = new Size(534, 32);
             textBox_membersSearch.TabIndex = 3;
@@ -127,51 +110,64 @@
             button_memberSearch.FlatAppearance.BorderSize = 0;
             button_memberSearch.FlatStyle = FlatStyle.Flat;
             button_memberSearch.Font = new Font("Segoe UI", 12F);
-            button_memberSearch.Location = new Point(647, 14);
+            button_memberSearch.Image = Properties.Resources.loupe_16;
+            button_memberSearch.ImageAlign = ContentAlignment.MiddleLeft;
+            button_memberSearch.Location = new Point(713, 17);
             button_memberSearch.Name = "button_memberSearch";
-            button_memberSearch.Size = new Size(100, 30);
+            button_memberSearch.Padding = new Padding(10, 0, 10, 0);
+            button_memberSearch.Size = new Size(108, 30);
             button_memberSearch.TabIndex = 4;
-            button_memberSearch.Text = "Ara";
+            button_memberSearch.Text = "Filtrele";
+            button_memberSearch.TextAlign = ContentAlignment.MiddleRight;
             button_memberSearch.UseVisualStyleBackColor = false;
             button_memberSearch.Click += button_memberSearch_Click;
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(51, 61, 81);
+            panel1.Controls.Add(button_settings);
             panel1.Controls.Add(label_member);
             panel1.Controls.Add(button_memberSearch);
             panel1.Controls.Add(textBox_membersSearch);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 24);
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(988, 57);
+            panel1.Size = new Size(1264, 57);
             panel1.TabIndex = 5;
             // 
-            // MainWindow
+            // button_settings
+            // 
+            button_settings.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button_settings.FlatAppearance.BorderSize = 0;
+            button_settings.FlatStyle = FlatStyle.Flat;
+            button_settings.Image = Properties.Resources.settings;
+            button_settings.Location = new Point(1222, 16);
+            button_settings.Name = "button_settings";
+            button_settings.Size = new Size(30, 30);
+            button_settings.TabIndex = 5;
+            button_settings.UseVisualStyleBackColor = true;
+            button_settings.Click += button_settings_Click;
+            // 
+            // KAPClient
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(51, 61, 81);
-            ClientSize = new Size(988, 590);
+            ClientSize = new Size(1264, 681);
             Controls.Add(panel1);
             Controls.Add(listView_members);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
-            Name = "MainWindow";
-            Text = "Form1";
-            Load += MainWindow_Load;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "KAPClient";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "SN MKK KAP Client";
+            FormClosing += KAPClient_FormClosing;
+            Load += KAPClient_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
         private ListView listView_members;
         private ColumnHeader columnHeader_id;
         private ColumnHeader columnHeader_title;
@@ -182,5 +178,6 @@
         private TextBox textBox_membersSearch;
         private Button button_memberSearch;
         private Panel panel1;
+        private Button button_settings;
     }
 }
